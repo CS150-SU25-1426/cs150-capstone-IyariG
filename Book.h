@@ -6,22 +6,27 @@
 
 class Book {
 private:
-    std::string title;
-    int quantity;
+    static int lastID;
+    int mId;
+    std::string mTitle;
+    int mQuantity;
 
 public:
     Book();
-    Book(std::string t, int q);
+    Book(const std::string& title, int quantity);
 
+    // Getters
+    int getId() const;
     std::string getTitle() const;
     int getQuantity() const;
 
-    void setTitle(std::string t);
-    void setQuantity(int q);
+    // Setters
+    void setTitle(const std::string& title);
+    void setQuantity(int quantity);
 
-    friend std::ostream& operator<<(std::ostream& os, const Book& b);
+    // Operators
     bool operator==(const Book& other) const;
+    friend std::ostream& operator<<(std::ostream& os, const Book& b);
 };
 
 #endif
-
